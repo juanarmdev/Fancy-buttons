@@ -75,11 +75,16 @@ main{
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+    div{
+        box-sizing: border-box;
+    }
     span{
         font-size: 1.2rem;
         color: #fff;
         position: relative;
         z-index: 1;
+        box-sizing: border-box;
     }
 
 }
