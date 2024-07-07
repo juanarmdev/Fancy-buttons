@@ -1,0 +1,285 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+.font-400{font-weight:400}
+.font-500{font-weight:500}
+.font-600{font-weight:600}
+.font-700{font-weight:700}
+.font-800{font-weight:800}
+.font-900{font-weight:900}
+.custom-btn--sans-serif{
+    font-family: 'Poppins', sans-serif;
+}
+.custom-btn--serif{
+    font-family: "Playfair Display", serif;
+}
+
+/* Color vars */
+:root{
+    --blue:#01417c;
+    --light-blue:#2193da;
+    --aquamarine:#08c4d8;
+}
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #181819;
+}
+main{
+    padding: 50px 0;
+}
+.container{
+    max-width: 1240px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+.buttons-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 30px;
+    flex-wrap: wrap;
+}
+.buttons-single-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+.buttons-title{
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+.btn-description{
+    line-height: 1.4;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+/* Common styles */
+.custom-btn{
+    border: 0;
+    background: none;
+    border-radius: 4px;
+    padding: 15px 35px;
+    display: block;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    span{
+        font-size: 1.2rem;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+    }
+
+}
+
+/* Top to bottom background-color */
+.custom-btn.ttb{
+    background-color: var(--blue);
+    .custom-btn__inner-bg{
+        position: absolute;
+        top: 0;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--aquamarine);
+        transition: all .5s ease;
+    }
+    &:hover{
+        .custom-btn__inner-bg{
+            bottom: 0;
+        }
+    }
+}
+
+/* Bottom to top background-color */
+.custom-btn.btt{
+    background-color: var(--blue);
+    .custom-btn__inner-bg{
+        position: absolute;
+        top: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--aquamarine);
+        transition: all .5s ease;
+    }
+    &:hover{
+        .custom-btn__inner-bg{
+            top: 0;
+        }
+    }
+}
+
+/* Left to right background-color */
+.custom-btn.ltr{
+    background-color: var(--blue);
+    .custom-btn__inner-bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 100%;
+        background-color: #08c4d8;
+        transition: all .5s ease;
+    }
+    &:hover{
+        .custom-btn__inner-bg{
+            right: 0;
+        }
+    }
+}
+
+/* Right to left background-color */
+.custom-btn.rtl{
+    background-color: var(--blue);
+    .custom-btn__inner-bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        right: 0;
+        background-color: var(--aquamarine);
+        transition: all .5s ease;
+    }
+    &:hover{
+        .custom-btn__inner-bg{
+            left: 0;
+        }
+    }
+}
+
+/* Middle to both sides */
+.custom-btn--middle-to-sides{
+    background-color: var(--blue);
+    .custom-btn__left-bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        background-color: var(--light-blue);
+        transition: all .6s ease;
+    }
+    .custom-btn__right-bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        background-color: var(--aquamarine);
+        transition: all .6s ease;
+    }
+    &:hover{
+        .custom-btn__left-bg{
+            right: 100%;
+        }
+        .custom-btn__right-bg{
+            right: 0;
+            left: 100%;
+        }
+    }
+}
+
+/* Diagonal middle to both sides */
+.custom-btn--diagonal-to-sides{
+    background-color: var(--blue);
+    transition: all .85s ease;
+    .left-diagonal{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        background-color: var(--light-blue);
+        transition: all .6s ease;
+        clip-path: polygon(0 0, 0 100%, 100% 100%);
+    }
+    .right-diagonal{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        background-color: var(--aquamarine);
+        transition: all .6s ease;
+        clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    }
+    &:hover{
+        .left-diagonal{
+            right: 100%;
+        }
+        .right-diagonal{
+            left: 100%;
+        }
+    }
+}
+
+/* Envelope */
+.custom-btn--envelope{
+    background-color: var(--blue);
+    overflow: visible;
+    .envelope{
+        height: 80%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--aquamarine);
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+    }
+    &:hover{
+        .envelope{
+            transform: translateY(-100%) rotate(180deg);
+        }
+    }
+}
+
+/* Three triangles */
+.custom-btn--three-triangles{
+    background-color: var(--blue);
+    .triangle{
+        width: 33.333333333%;
+        height: 100%;
+        clip-path: polygon(0 100%, 50% 0, 100% 100%);
+        background-color: var(--light-blue);
+        position: absolute;
+        top: 0;
+        left: 16.666666666%;
+        transition: all .9s ease;
+        &:nth-child(3){
+            left: 33.333333333%;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            background-color: var(--aquamarine)
+        }
+        &:last-child{
+            left: auto;
+            right: 16.666666666%;
+        }
+    }
+    &:hover{
+        .triangle{
+            &:nth-child(2){
+                left: -100%;
+            }
+            &:nth-child(3){
+                top: -100%;
+            }
+            &:last-child{
+                right: -100%;
+            }
+        }
+    }
+}
